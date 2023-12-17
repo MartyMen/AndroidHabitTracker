@@ -35,6 +35,10 @@ class HabitsAdapter(private val habits: List<Habit>) : RecyclerView.Adapter<Habi
         }
     }
 
+    fun getSelectedHabitNames(selectedIds: Set<String>): List<String> {
+        return habits.filter { it.habitId in selectedIds }.map { it.habitName }
+    }
+
     fun getSelectedHabits(): Set<String> {
         return selectedHabits
     }

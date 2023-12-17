@@ -23,6 +23,13 @@ interface ApiService {
 
     @DELETE("habits/{habitName}")
     fun deleteHabit(@Path("habitName") habitName: String): Call<Void>
+
+    @POST("habitrecords")
+    fun logHabits(@Body habitLogRequest: HabitLogRequest): Call<List<String>>
+
+    @POST("habitrecords/log-past-habits")
+    fun logPastHabits(@Body habitLogRequest: HabitLogRequest): Call<List<String>>
+
 }
 
 
